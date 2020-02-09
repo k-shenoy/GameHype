@@ -1,4 +1,5 @@
 import sys
+import manager
 from PyQt5 import QtCore, QtGui, QtWidgets, uic
 
 
@@ -16,9 +17,13 @@ class MyWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         team1 = self.team1.text()
         team2 = self.team2.text()
         nba = ""
+        poss = ""
         if self.rbNBA.isChecked():
             nba = self.comboBox.currentText()
-        self.results_output.setText(nba)
+            poss = manager.fullB(team1, team2, nba)
+        else:
+            poss = manager.fullF(team1, team2)
+        self.results_output.setText(str(poss))
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
