@@ -23,7 +23,10 @@ class MyWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             poss = manager.fullB(team1, team2, nba)
         else:
             poss = manager.fullF(team1, team2)
-        self.results_output.setText(str(poss))
+        if nba == "Attendance":
+            self.results_output.setText("Attendance Differential:"+str(poss))
+        else:
+            self.results_output.setText("Score Differential:"+str(poss))
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
