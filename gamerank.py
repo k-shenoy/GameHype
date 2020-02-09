@@ -1,5 +1,5 @@
 import sys
-import manager
+#import manager
 from PyQt5 import QtCore, QtGui, QtWidgets, uic
 
 
@@ -24,9 +24,10 @@ class MyWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         else:
             poss = manager.fullF(team1, team2)
         if nba == "Attendance":
-            self.results_output.setText("Attendance Differential:"+str(poss))
+            self.results_output.setText("Attendance Differential: "+str(poss))
         else:
-            self.results_output.setText("Score Differential:"+str(poss))
+            self.results_output.setText("Score Differential: "+str(poss))
+        QtGui.QGuiApplication.processEvents()
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
